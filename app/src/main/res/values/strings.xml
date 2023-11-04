@@ -1,4 +1,14 @@
 <resources>
     <string name="app_name">Patigayon\'s Animal Names</string>
     <string name="back_button_description">Go back</string>
+    <string name="animal_name">Animal Name</string>
+    <string name="unblock">Unblock</string>
+    <string name="manage_block">Manage Block Animals</string>
+    <string name="animal_names_title">Animal Names from A to Z</string>
+    <string name="manage_blocked_animals">Manage Blocked Animals</string>
+    <string name="animal_details_title">Animal Details</string>
+    <string name="animal_description">Animal Description</string>
+    <string name="block_animal">Block Animal</string>
+
+
 </resources>

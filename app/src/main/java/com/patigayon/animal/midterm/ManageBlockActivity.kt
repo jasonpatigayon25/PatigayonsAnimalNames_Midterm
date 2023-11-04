@@ -45,9 +45,9 @@ class ManageBlockActivity : AppCompatActivity() {
             val layoutInflater = LayoutInflater.from(context)
             val view = convertView ?: layoutInflater.inflate(resource, parent, false)
             val animalName = items[position]
-            view.findViewById<TextView>(R.id.tvAnimalName).text = animalName
+            view.findViewById<TextView>(R.id.tv_animal_name).text = animalName
 
-            view.findViewById<TextView>(R.id.tvUnblock).setOnClickListener {
+            view.findViewById<TextView>(R.id.tv_unblock).setOnClickListener {
                 unblockAnimal(animalName)
             }
 
