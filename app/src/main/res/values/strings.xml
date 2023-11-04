@@ -8,6 +8,7 @@
     <string name="manage_blocked_animals">Manage Blocked Animals</string>
     <string name="animal_details_title">Animal Details</string>
     <string name="animal_description">Animal Description</string>
+    <string name="animal_image">Animal Image</string>
     <string name="block_animal">Block Animal</string>
 
 

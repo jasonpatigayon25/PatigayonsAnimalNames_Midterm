@@ -1,33 +1,35 @@
 package com.patigayon.animal.midterm
 
 import android.os.Bundle
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.patigayon.animal.midterm.databinding.ActivityAnimalDetailsBinding
 
 class AnimalDetailsActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityAnimalDetailsBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_animal_details)
+        binding = ActivityAnimalDetailsBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         val animalName = intent.getStringExtra("animal_name")
-        val animalDescriptionTextView = findViewById<TextView>(R.id.tv_animal_description)
-        val blockAnimalButton = findViewById<Button>(R.id.btn_block_animal)
-        val backButton = findViewById<ImageView>(R.id.back_button)
 
-        blockAnimalButton.alpha = 0f
-        blockAnimalButton.animate().alpha(1f).setDuration(2000).setListener(null)
-        findViewById<TextView>(R.id.tv_animal_name).text = animalName
+        binding.tvAnimalName.text = animalName
+        binding.tvAnimalDescription.text = getAnimalDescription(animalName)
 
-        animalDescriptionTextView.text = getAnimalDescription(animalName)
-
-        blockAnimalButton.setOnClickListener {
-            blockAnimal(animalName)
+        binding.btnBlockAnimal.apply {
+            alpha = 0f
+            animate().alpha(1f).setDuration(2000).setListener(null)
+            setOnClickListener {
+                blockAnimal(animalName)
+                finish()
+            }
+        }
+        binding.backButton.setOnClickListener {
             finish()
         }
 
-        backButton.setOnClickListener {
+        binding.toolbarAnimalDetails.setNavigationOnClickListener {
             finish()
         }
     }

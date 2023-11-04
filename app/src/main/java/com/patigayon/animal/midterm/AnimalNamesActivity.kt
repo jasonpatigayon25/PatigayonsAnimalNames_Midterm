@@ -4,12 +4,12 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.widget.ArrayAdapter
-import android.widget.Button
-import android.widget.ListView
 import androidx.appcompat.app.AppCompatActivity
+import com.patigayon.animal.midterm.databinding.ActivityAnimalNamesBinding
 
 class AnimalNamesActivity : AppCompatActivity() {
-    private lateinit var listView: ListView
+
+    private lateinit var binding: ActivityAnimalNamesBinding
     private lateinit var adapter: ArrayAdapter<String>
     private val allAnimals = listOf(
         "Alligator", "Bear", "Cheetah", "Dolphin", "Elephant",
@@ -24,21 +24,22 @@ class AnimalNamesActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_animal_names)
+        binding = ActivityAnimalNamesBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
 
-        listView = findViewById(R.id.list_animals)
         adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, displayedAnimals)
-        listView.adapter = adapter
+        binding.listAnimals.adapter = adapter
         sharedPreferences = getSharedPreferences("AnimalPrefs", MODE_PRIVATE)
 
-        listView.setOnItemClickListener { _, _, position, _ ->
+        binding.listAnimals.setOnItemClickListener { _, _, position, _ ->
             val intent = Intent(this, AnimalDetailsActivity::class.java).apply {
                 putExtra("animal_name", displayedAnimals[position])
             }
             startActivity(intent)
         }
 
-        findViewById<Button>(R.id.btn_manage_blocked_animals).setOnClickListener {
+        binding.btnManageBlockedAnimals.setOnClickListener {
             val intent = Intent(this, ManageBlockActivity::class.java)
             startActivity(intent)
         }
