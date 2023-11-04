@@ -17,6 +17,9 @@ class AnimalDetailsActivity : AppCompatActivity() {
         binding.tvAnimalName.text = animalName
         binding.tvAnimalDescription.text = getAnimalDescription(animalName)
 
+        val animalImage = getAnimalImage(animalName)
+        binding.ivAnimalImage.setImageResource(animalImage)
+
         binding.btnBlockAnimal.apply {
             alpha = 0f
             animate().alpha(1f).setDuration(2000).setListener(null)
@@ -33,6 +36,39 @@ class AnimalDetailsActivity : AppCompatActivity() {
             finish()
         }
     }
+
+    private fun getAnimalImage(animalName: String?): Int {
+        return when (animalName) {
+            "Alligator" -> R.drawable.alligator_image
+            "Bear" -> R.drawable.bear_image
+            "Cheetah" -> R.drawable.cheetah_image
+            "Dolphin" -> R.drawable.dolphin_image
+            "Elephant" -> R.drawable.elephant_image
+            "Frog" -> R.drawable.frog_image
+            "Giraffe" -> R.drawable.giraffe_image
+            "Hippo" -> R.drawable.hippo_image
+            "Iguana" -> R.drawable.iguana_image
+            "Jaguar" -> R.drawable.jaguar_image
+            "Koala" -> R.drawable.koala_image
+            "Lion" -> R.drawable.lion_image
+            "Monkey" -> R.drawable.tiger_image
+            "Narwhal" -> R.drawable.narwhall_image
+            "Ostrich" -> R.drawable.ostrich_image
+            "Penguin" -> R.drawable.penguin
+            "Quail" -> R.drawable.quail_image
+            "Rabbit" -> R.drawable.rabbit_image
+            "Snake" -> R.drawable.snake_image
+            "Tiger" -> R.drawable.tiger_image
+            "Urial" -> R.drawable.urial_image
+            "Vulture" -> R.drawable.vulture_image
+            "Walrus" -> R.drawable.walrus_image
+            "Xerus" -> R.drawable.xerus_image
+            "Yak" -> R.drawable.yak_image
+            "Zebra" -> R.drawable.zebra_image
+            else -> R.drawable.default_animal_image
+        }
+    }
+
 
     private fun getAnimalDescription(animalName: String?): String {
         return when (animalName) {

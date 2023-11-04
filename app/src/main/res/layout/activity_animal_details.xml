@@ -1,11 +1,26 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="#E0F2F1"
     tools:context=".AnimalDetailsActivity">
+
+    <ImageView
+        android:id="@+id/iv_background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/background_image"
+        android:alpha="0.2"
+        android:scaleType="fitXY"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/transparent_background_description" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@android:color/transparent">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar_animal_details"
@@ -60,6 +75,16 @@
         android:textSize="16sp"
         android:text="@string/animal_description"/>
 
+    <ImageView
+        android:id="@+id/iv_animal_image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:scaleType="centerCrop"
+        android:adjustViewBounds="true"
+        android:src="@drawable/default_animal_image"
+        android:contentDescription="@string/animal_image_description"/>
+
     <View
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -79,3 +104,4 @@
         android:layout_gravity="center_horizontal"
         app:backgroundTint="#00008b"/>
 </LinearLayout>
+</FrameLayout>

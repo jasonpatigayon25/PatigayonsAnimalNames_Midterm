@@ -10,6 +10,7 @@
     <string name="animal_description">Animal Description</string>
     <string name="animal_image">Animal Image</string>
     <string name="block_animal">Block Animal</string>
-
+    <string name="animal_image_description">Animal Photo</string>
+    <string name="transparent_background_description">Animal Photo</string>
 
 </resources>
